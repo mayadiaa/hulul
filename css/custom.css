@@ -1,0 +1,97 @@
+.logoImg {
+    max-width: 100%;
+    height: 3rem !important;
+    margin-top: -0.5rem !important;
+}
+
+.bgImg {
+    background-image: url(../img/ChatGPT\ Image\ 15\ أكتوبر\ 2025،\ 10_03_55\ ص.png) !important;
+}
+
+.iconImg {
+    height: 3rem;
+}
+
+.portfolioImg1 {
+    background-image: url(../img/portofoliohome/giveaways.png) !important;
+    background-position: 0%;
+    background-size: cover;
+}
+
+.portfolioImg2 {
+    background-image: url(../img/portofoliohome/5-3-300x300.jpg) !important;
+    background-position: 44%;
+    background-size: cover;
+}
+
+.portfolioImg3 {
+    background-image: url(../img/portofoliohome/design2.jpg) !important;
+    background-position: 0%;
+    background-size: cover;
+}
+
+.portfolioImg4 {
+    background-image: url(../img/portofoliohome/design6.jpeg) !important;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.portfolioImg5 {
+    background-image: url(../img/portofoliohome/design3.jpg) !important;
+    background-position: 10%;
+    background-size: cover;
+}
+
+.portfolioImg6 {
+    background-image: url(../img/portofoliohome/ChatGPT\ Image\ 15\ أكتوبر\ 2025،\ 12_42_15\ م.png) !important;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.portfolioImg7 {
+    background-image: url(../img/portofoliohome/design4.jpg) !important;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.careerImg {
+    background-color: #353575bf;
+    height: 25rem;
+
+}
+
+.appcontainer {
+    position: relative;
+
+}
+
+.applicationImg {
+    position: absolute !important;
+    right: -5rem !important;
+    top: -4.5rem !important;
+    height: 31rem !important;
+}
+
+.applicatonSpan {
+    background: linear-gradient(90deg, #00d8ff, #2e38a3, #0a012b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.applicationRequest {
+    background: linear-gradient(135deg, #0a012b 0%, #1a1c6e 40%, #2e38a3 70%, #00d8ff 100%) !important;
+
+}
+
+.applicationRequest:hover {
+    color: #0a012b !important;
+    transition: all ease 600ms;
+}
+.iconImg{
+    background: linear-gradient(90deg, #00d8ff, #2e38a3, #0a012b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 3rem;
+}
