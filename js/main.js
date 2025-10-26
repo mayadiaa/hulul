@@ -208,21 +208,60 @@ clearBtn.addEventListener('click', ()=>{
   deptSel.value=""; typeSel.value=""; searchIn.value=""; renderJobs(JOBS);
 });
 
-/* ===== Modal: prefill position field ===== */
-const applyModal = document.getElementById('applyModal');
-applyModal.addEventListener('show.bs.modal', function (e) {
-  const btn = e.relatedTarget;
-  const title = btn?.getAttribute('data-job') || '—';
-  document.getElementById('jobTitleSpan').textContent = title;
-  document.getElementById('positionField').value = title;
-});
+ const applyModal = document.getElementById('applyModal');
+    applyModal.addEventListener('show.bs.modal', function (event) {
+      const btn = event.relatedTarget;
+      const jobTitle = btn?.getAttribute('data-job') || '—';
+      document.getElementById('applyJobTitle').textContent = jobTitle;
+      document.getElementById('applyPosition').value = jobTitle;
+    });
 
-/* ===== Submit application (demo) ===== */
-document.getElementById('applyForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  // TODO: استبدلي ده باستدعاء API أو Formspree
-  this.reset();
-  const modal = bootstrap.Modal.getInstance(applyModal);
-  modal.hide();
-  alert('Thanks! Your application has been submitted.');
+    /* ====== Job Details Modal: */
+   
+    const jobModal = document.getElementById('jobModal');
+    jobModal.addEventListener('show.bs.modal', function (event) {
+      const btn = event.relatedTarget;
+      const key = btn?.getAttribute('data-job') || '';
+      const data = JOB_DB[key] || null;
+
+      const titleEl = document.getElementById('jobTitle');
+      const metaEl = document.getElementById('jobMeta');
+      const introEl = document.getElementById('jobIntro');
+      const respEl = document.getElementById('jobResp');
+      const reqEl = document.getElementById('jobReq');
+
+      titleEl.textContent = key || 'Job Details';
+      if (data) {
+        metaEl.textContent = `${data.dept} • ${data.type} • ${data.location} • ${data.salary}`;
+        introEl.textContent = data.intro;
+        respEl.innerHTML = data.resp.map(i => `<li>${i}</li>`).join('');
+        reqEl.innerHTML = data.req.map(i => `<li>${i}</li>`).join('');
+      } else {
+        metaEl.textContent = '';
+        introEl.textContent = 'Details will be updated soon.';
+        respEl.innerHTML = '';
+        reqEl.innerHTML = '';
+      }
+
+      // الزرار يفتح مودال التقديم ومعبّي المسمى
+      const jobApplyBtn = document.getElementById('jobApplyBtn');
+      jobApplyBtn.setAttribute('data-bs-toggle', 'modal');
+      jobApplyBtn.setAttribute('data-bs-target', '#applyModal');
+      jobApplyBtn.setAttribute('data-job', key);
+    });
+
+    /* إرسال فورم التقديم — استبدليه بإرسال فعلي لاحقًا */
+    document.getElementById('applyForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      // TODO: ابعتي الفورم للسيرفر أو لخدمة Forms
+      alert('Thanks! Your application has been submitted.');
+      const modal = bootstrap.Modal.getInstance(applyModal);
+      modal.hide();
+    });
+    
+document.querySelectorAll('.card[data-href]').forEach(card=>{
+  card.addEventListener('click', ()=> {
+    window.location.href = card.dataset.href;
+  });
 });

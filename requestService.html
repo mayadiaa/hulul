@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<link rel="stylesheet" href="./css/custom.css">
+<link rel="stylesheet" href="css/custom.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 <style>
 
 </style>
@@ -30,7 +31,7 @@
     <div class="content">
       <!-- Intro (default) -->
       <div class="intro" id="introPane">
-        <h1>Let's build something great together</h1>
+        <h1 class="textwhite">Let's build something great together</h1>
         <p>Share your project and our team will get back within 24 hours.</p>
         <div class="point"><i class="fa-solid fa-circle-check"></i> Dedicated account manager</div>
         <div class="point"><i class="fa-solid fa-circle-check"></i> Clear timelines & transparent pricing</div>
@@ -43,7 +44,7 @@
       <!-- Form (hidden until show-form) -->
       <div class="form-card" id="formPane" style="display:none">
         <div class="form-header">
-          <h2 class="form-title">Request Service</h2>
+          <h2 class="form-title textwhite">Request Service</h2>
           <!-- <div class="arrow-set">
             <button class="icon-btn" id="moveLeft" title="Nudge left"><i class="fa-solid fa-arrow-left"></i></button>
             <button class="icon-btn" id="moveRight" title="Nudge right"><i class="fa-solid fa-arrow-right"></i></button>
@@ -134,43 +135,6 @@
   </section>
 </main>
   </div>
-
-
-
-<script>
-const switcher = document.getElementById('switcher');
-const startBtn  = document.getElementById('startBtn');
-const introPane = document.getElementById('introPane');
-const formPane  = document.getElementById('formPane');
-const backBtn   = document.getElementById('backBtn');
-const reqForm   = document.getElementById('reqForm');
-const moveLeft  = document.getElementById('moveLeft');
-const moveRight = document.getElementById('moveRight');
-
-function showForm(){
-  switcher.classList.add('show-form');       // الصورة → يمين
-  introPane.style.display = 'none';
-  formPane.style.display  = 'block';
-}
-function showIntro(){
-  switcher.classList.remove('show-form');    // الصورة → شمال
-  formPane.style.display  = 'none';
-  introPane.style.display = 'block';
-}
-
-startBtn.addEventListener('click', showForm);
-backBtn.addEventListener('click', showIntro);
-
-moveLeft.addEventListener('click', ()=>{
-  reqForm.classList.remove('to-right');
-  reqForm.classList.add('to-left');
-  setTimeout(()=>reqForm.classList.remove('to-left'), 420);
-});
-moveRight.addEventListener('click', ()=>{
-  reqForm.classList.remove('to-left');
-  reqForm.classList.add('to-right');
-  setTimeout(()=>reqForm.classList.remove('to-right'), 420);
-});
-</script>
+<script src="./js/custom.js"></script>
 </body>
 </html>

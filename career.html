@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
   <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
   <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/custom.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
 <body>
@@ -378,7 +378,7 @@
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea class="form-control" rows="3" placeholder="Tell us about yourself..."></textarea>
+            <textarea class="form-control text"  placeholder="Tell us about yourself..."></textarea>
           </div>
           <button type="submit" class="btn btn-info btn-block">
             <i class="fa fa-paper-plane"></i> Submit Application
@@ -486,58 +486,8 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/main.js"></script>
   <script>
-    /* ====== Apply Modal: تعبئة المسمّى تلقائيًا ====== */
-    const applyModal = document.getElementById('applyModal');
-    applyModal.addEventListener('show.bs.modal', function (event) {
-      const btn = event.relatedTarget;
-      const jobTitle = btn?.getAttribute('data-job') || '—';
-      document.getElementById('applyJobTitle').textContent = jobTitle;
-      document.getElementById('applyPosition').value = jobTitle;
-    });
-
-    /* ====== Job Details Modal: */
+    
    
-    const jobModal = document.getElementById('jobModal');
-    jobModal.addEventListener('show.bs.modal', function (event) {
-      const btn = event.relatedTarget;
-      const key = btn?.getAttribute('data-job') || '';
-      const data = JOB_DB[key] || null;
-
-      const titleEl = document.getElementById('jobTitle');
-      const metaEl = document.getElementById('jobMeta');
-      const introEl = document.getElementById('jobIntro');
-      const respEl = document.getElementById('jobResp');
-      const reqEl = document.getElementById('jobReq');
-
-      titleEl.textContent = key || 'Job Details';
-      if (data) {
-        metaEl.textContent = `${data.dept} • ${data.type} • ${data.location} • ${data.salary}`;
-        introEl.textContent = data.intro;
-        respEl.innerHTML = data.resp.map(i => `<li>${i}</li>`).join('');
-        reqEl.innerHTML = data.req.map(i => `<li>${i}</li>`).join('');
-      } else {
-        metaEl.textContent = '';
-        introEl.textContent = 'Details will be updated soon.';
-        respEl.innerHTML = '';
-        reqEl.innerHTML = '';
-      }
-
-      // الزرار يفتح مودال التقديم ومعبّي المسمى
-      const jobApplyBtn = document.getElementById('jobApplyBtn');
-      jobApplyBtn.setAttribute('data-bs-toggle', 'modal');
-      jobApplyBtn.setAttribute('data-bs-target', '#applyModal');
-      jobApplyBtn.setAttribute('data-job', key);
-    });
-
-    /* إرسال فورم التقديم — استبدليه بإرسال فعلي لاحقًا */
-    document.getElementById('applyForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = new FormData(this);
-      // TODO: ابعتي الفورم للسيرفر أو لخدمة Forms
-      alert('Thanks! Your application has been submitted.');
-      const modal = bootstrap.Modal.getInstance(applyModal);
-      modal.hide();
-    });
   </script>
 </body>
 
