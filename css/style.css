@@ -1836,6 +1836,7 @@ transition: ease all 600ms ;
   .container {
     max-width: 1170px;
   }
+ 
 }
 /* Medium Device = 1200px */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -1846,14 +1847,16 @@ transition: ease all 600ms ;
   .header__nav__menu ul li {
     margin-right: 25px;
   }
-
+ .header__nav__menu ul {
+    gap:0;
+  }
   .header__nav__social {
     padding-left: 25px;
   }
-
-  .counter__item::before {
-    display: none;
-  }
+.btn {
+    width: 9rem;
+    font-size: 0.6rem;
+}
 
   .counter__content {
     padding: 0px 145px 0 50px;
@@ -1986,6 +1989,7 @@ transition: ease all 600ms ;
     right: 10px;
     top: 26px;
     background: #00bfe7;
+    margin-top: 2rem;
   }
 
   .header .container {
@@ -2001,7 +2005,14 @@ transition: ease all 600ms ;
   .services__title {
     margin-bottom: 50px;
   }
-
+  .header{
+    height:6rem
+  }
+.logoImg {
+    max-width: 100%;
+    height: 2.3rem;
+    margin-top: -2.5rem !important;
+}
   .counter__item {
     -webkit-transform: rotate(0);
     -ms-transform: rotate(0);
@@ -2096,11 +2107,11 @@ transition: ease all 600ms ;
   .slicknav_nav a:hover {
     border-radius: 0;
     background: transparent;
-    color: #111111;
+    color: #fff;
   }
 
   .slicknav_nav {
-    background: #222222;
+    background: #08103c;
   }
 
   .slicknav_btn {

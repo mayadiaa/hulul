@@ -975,7 +975,7 @@ textarea {
 }
 .container{max-width:var(--container);margin:auto;padding:24px;}
 
-.hero{padding:48px 0;background:linear-gradient(180deg,#100733 0%, #0b0420 100%);}
+.hero{background:linear-gradient(180deg,#100733 0%, #0b0420 100%);}
 .hero h1{margin:0 0 8px;font-size:40px}
 .breadcrumb{color:var(--muted);font-size:14px}
 .breadcrumb a{color:var(--primary);text-decoration:none}
