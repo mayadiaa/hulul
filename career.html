@@ -495,34 +495,8 @@
       document.getElementById('applyPosition').value = jobTitle;
     });
 
-    /* ====== Job Details Modal: قاعدة بيانات مصغّرة ====== */
-    const JOB_DB = {
-      "Digital Marketing Specialist": {
-        dept: "Marketing", type: "Full-time", location: "New Cairo (Hybrid)", salary: "EGP 18k–28k",
-        intro: "We’re looking for a Digital Marketing Specialist to plan and optimize paid/organic campaigns across social and search while tracking KPIs and improving performance.",
-        resp: [
-          "Plan and execute paid campaigns (Meta, Google, TikTok).",
-          "Optimize SEO/ASO and landing pages for conversion.",
-          "Build content calendars with the creative team.",
-          "Analyze performance and report actionable insights."
-        ],
-        req: [
-          "1–3 years in digital/performance marketing.",
-          "Hands-on with Meta/Google Ads, Analytics, Tag Manager.",
-          "Solid grasp of funnel metrics & attribution.",
-          "Excellent English and presentation skills."
-        ]
-      },
-
-      /* ضيفي وظائف أخرى بنفس الشكل */
-      "Graphic Designer": {
-        dept: "Creative", type: "Full-time", location: "Nasr City (On-site)", salary: "EGP 15k–25k",
-        intro: "Create on-brand visuals for campaigns across social, web and print with high attention to detail.",
-        resp: ["Design social posts, ads, and banners.", "Collaborate with copy & video teams.", "Maintain brand consistency across touchpoints.", "Prepare print-ready files."],
-        req: ["2+ years design experience.", "Expert in Adobe Suite.", "Strong portfolio.", "Motion basics are a plus."]
-      }
-    };
-
+    /* ====== Job Details Modal: */
+   
     const jobModal = document.getElementById('jobModal');
     jobModal.addEventListener('show.bs.modal', function (event) {
       const btn = event.relatedTarget;
