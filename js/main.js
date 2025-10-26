@@ -180,3 +180,49 @@
     });
 
 })(jQuery);
+/* ===== Filters & search ===== */
+const deptSel = document.getElementById('dept');
+const typeSel = document.getElementById('type');
+const searchIn = document.getElementById('q');
+const clearBtn = document.getElementById('clear');
+
+function applyFilters(){
+  const d = deptSel.value.trim().toLowerCase();
+  const t = typeSel.value.trim().toLowerCase();
+  const q = searchIn.value.trim().toLowerCase();
+
+  const filtered = JOBS.filter(j=>{
+    const okDept = !d || j.dept.toLowerCase() === d;
+    const okType = !t || j.type.toLowerCase() === t;
+    const text = [j.title, j.dept, j.type, j.location, j.desc, ...(j.tags||[])].join(" ").toLowerCase();
+    const okQ = !q || text.includes(q);
+    return okDept && okType && okQ;
+  });
+
+  renderJobs(filtered);
+}
+deptSel.addEventListener('change', applyFilters);
+typeSel.addEventListener('change', applyFilters);
+searchIn.addEventListener('input', applyFilters);
+clearBtn.addEventListener('click', ()=>{
+  deptSel.value=""; typeSel.value=""; searchIn.value=""; renderJobs(JOBS);
+});
+
+/* ===== Modal: prefill position field ===== */
+const applyModal = document.getElementById('applyModal');
+applyModal.addEventListener('show.bs.modal', function (e) {
+  const btn = e.relatedTarget;
+  const title = btn?.getAttribute('data-job') || '—';
+  document.getElementById('jobTitleSpan').textContent = title;
+  document.getElementById('positionField').value = title;
+});
+
+/* ===== Submit application (demo) ===== */
+document.getElementById('applyForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  // TODO: استبدلي ده باستدعاء API أو Formspree
+  this.reset();
+  const modal = bootstrap.Modal.getInstance(applyModal);
+  modal.hide();
+  alert('Thanks! Your application has been submitted.');
+});

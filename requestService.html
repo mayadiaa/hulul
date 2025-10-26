@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Request Service • HULUL</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="./css/custom.css">
+<style>
+
+</style>
+</head>
+<body style="overflow: hidden;">
+
+  <div class="request-content">
+<a class="home-fab" href="index.html" title="Back to Home"><i class="fa-solid fa-house"></i></a>
+
+<main class="stage">
+  <!-- switcher: default intro (image left). When .show-form => image right -->
+  <section class="switcher" id="switcher">
+    <!-- VISUAL -->
+    <div class="visual">
+      <div class="logo-wrap Hulul">HULUL</div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <!-- Intro (default) -->
+      <div class="intro" id="introPane">
+        <h1>Let's build something great together</h1>
+        <p>Share your project and our team will get back within 24 hours.</p>
+        <div class="point"><i class="fa-solid fa-circle-check"></i> Dedicated account manager</div>
+        <div class="point"><i class="fa-solid fa-circle-check"></i> Clear timelines & transparent pricing</div>
+        <div class="point"><i class="fa-solid fa-circle-check"></i> Measurable results & on-going support</div>
+        <div style="margin-top:22px">
+          <button class="btn" id="startBtn"><i class="fa-regular fa-pen-to-square"></i>Request Service</button>
+        </div>
+      </div>
+
+      <!-- Form (hidden until show-form) -->
+      <div class="form-card" id="formPane" style="display:none">
+        <div class="form-header">
+          <h2 class="form-title">Request Service</h2>
+          <!-- <div class="arrow-set">
+            <button class="icon-btn" id="moveLeft" title="Nudge left"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="icon-btn" id="moveRight" title="Nudge right"><i class="fa-solid fa-arrow-right"></i></button>
+          </div> -->
+        </div>
+        <!-- <p class="form-note">Fields marked * are required</p> -->
+
+        <form id="reqForm" class="slide" onsubmit="event.preventDefault(); alert('Submitted ✔');">
+          <div class="grid">
+            <div>
+              <label>Full name *</label>
+              <input class="input" type="text" required placeholder="your name">
+            </div>
+            <div>
+              <label>Email *</label>
+              <input class="input" type="email" required placeholder="you@email.com">
+            </div>
+
+            <div>
+              <label>Phone</label>
+              <input class="input" type="tel" placeholder="+20 1X XXX XXXX">
+            </div>
+            <div>
+              <label>Company</label>
+              <input class="input" type="text" placeholder="Company Name">
+            </div>
+
+            <div>
+              <label>Service *</label>
+              <select class="input" required>
+                <option value="" selected disabled>Select a service</option>
+                <option>Digital Marketing</option>
+                <option>Creative Services</option>
+                <option>Web Development</option>
+                <option>Influencer Marketing</option>
+                <option>Media Production</option>
+                <option>Media Coverage</option>
+                <option>Outdoor Advertising</option>
+                <option>Printing</option>
+                <option>Audio Production</option>
+                <option>Training & Workshops</option>
+              </select>
+            </div>
+            <div>
+              <label>Budget</label>
+              <select class="input">
+                <option selected disabled>Select</option>
+                <option>$1k–$3k</option>
+                <option>$3k–$7k</option>
+                <option>$7k–$15k</option>
+                <option>$15k+</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Timeline</label>
+              <select class="input">
+                <option>Flexible</option>
+                <option>ASAP</option>
+                <option>2–4 weeks</option>
+                <option>1–3 months</option>
+              </select>
+            </div>
+
+            <div class="full">
+              <label>Project brief</label>
+              <textarea class="input" placeholder="Goals, audience, references, must-haves..."></textarea>
+            </div>
+
+            <div class="full">
+              <label>Attach file (optional)</label>
+              <div class="drop"><i class="fa-regular fa-folder-open"></i> Drag & drop or <u>browse</u></div>
+            </div>
+          </div>
+
+          <!-- <label class="policy">
+            <input type="checkbox" required> I agree to the <a href="#" style="color:var(--accent);text-decoration:none;margin-left:6px">Privacy Policy</a>.
+          </label> -->
+
+          <div class="actions">
+            <button class="btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+            <button class="btn btn-ghost" type="button" id="backBtn"><i class="fa-solid fa-arrow-left-long"></i> Back</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+  </section>
+</main>
+  </div>
+
+
+
+<script>
+const switcher = document.getElementById('switcher');
+const startBtn  = document.getElementById('startBtn');
+const introPane = document.getElementById('introPane');
+const formPane  = document.getElementById('formPane');
+const backBtn   = document.getElementById('backBtn');
+const reqForm   = document.getElementById('reqForm');
+const moveLeft  = document.getElementById('moveLeft');
+const moveRight = document.getElementById('moveRight');
+
+function showForm(){
+  switcher.classList.add('show-form');       // الصورة → يمين
+  introPane.style.display = 'none';
+  formPane.style.display  = 'block';
+}
+function showIntro(){
+  switcher.classList.remove('show-form');    // الصورة → شمال
+  formPane.style.display  = 'none';
+  introPane.style.display = 'block';
+}
+
+startBtn.addEventListener('click', showForm);
+backBtn.addEventListener('click', showIntro);
+
+moveLeft.addEventListener('click', ()=>{
+  reqForm.classList.remove('to-right');
+  reqForm.classList.add('to-left');
+  setTimeout(()=>reqForm.classList.remove('to-left'), 420);
+});
+moveRight.addEventListener('click', ()=>{
+  reqForm.classList.remove('to-left');
+  reqForm.classList.add('to-right');
+  setTimeout(()=>reqForm.classList.remove('to-right'), 420);
+});
+</script>
+</body>
+</html>
