@@ -989,7 +989,7 @@ textarea {
 
 .card{
   display:block;
-  background:var(--card);
+  /* background:var(--card); */
   border-radius:var(--radius);
   padding:28px;
   text-decoration:none;

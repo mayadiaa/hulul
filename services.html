@@ -524,26 +524,6 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script>
-      (function () {
-        const btn = document.getElementById("toggleMore");
-        const hiddenItems = document.querySelectorAll(".extra-service");
-
-        btn.addEventListener("click", function () {
-          const expanded = this.getAttribute("aria-expanded") === "true";
-          // toggle hidden attribute
-          hiddenItems.forEach((card) => {
-            if (expanded) {
-              card.setAttribute("hidden", "");
-            } else {
-              card.removeAttribute("hidden");
-            }
-          });
-          // update button text + state
-          this.textContent = expanded ? "See more" : "See less";
-          this.setAttribute("aria-expanded", String(!expanded));
-        });
-      })();
-    </script>
+    <script src="./js/custom.js"></script>
   </body>
 </html>

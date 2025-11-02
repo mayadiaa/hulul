@@ -1,34 +1,77 @@
+(function () {
+  function ready(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  ready(function () {
+    // ===== Helpers =====
+    const $  = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+    const on = (el, evt, handler, opts) => el && el.addEventListener(evt, handler, opts);
+
+
+    on(document, 'click', function (e) {
+      const btn = e.target.closest('#toggleMore');
+      if (!btn) return;
+
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      $$('.extra-service').forEach(card => {
+       
+        card.toggleAttribute('hidden', expanded);
+      });
+
+      btn.textContent = expanded ? 'See more ->' : 'See less';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    }, { passive: true });
+
    
-const switcher = document.getElementById('switcher');
-const startBtn  = document.getElementById('startBtn');
-const introPane = document.getElementById('introPane');
-const formPane  = document.getElementById('formPane');
-const backBtn   = document.getElementById('backBtn');
-const reqForm   = document.getElementById('reqForm');
-const moveLeft  = document.getElementById('moveLeft');
-const moveRight = document.getElementById('moveRight');
+    if (!document.querySelector('style[data-hidden-polyfill]')) {
+      const s = document.createElement('style');
+      s.dataset.hiddenPolyfill = 'true';
+      s.textContent = '[hidden]{display:none!important}';
+      document.head.appendChild(s);
+    }
 
-function showForm(){
-  switcher.classList.add('show-form');       // الصورة → يمين
-  introPane.style.display = 'none';
-  formPane.style.display  = 'block';
-}
-function showIntro(){
-  switcher.classList.remove('show-form');    // الصورة → شمال
-  formPane.style.display  = 'none';
-  introPane.style.display = 'block';
-}
+  
+    const switcher = $('#switcher');
+    const startBtn = $('#startBtn');
+    const introPane = $('#introPane');
+    const formPane  = $('#formPane');
+    const backBtn   = $('#backBtn');
+    const reqForm   = $('#reqForm');
+    const moveLeft  = $('#moveLeft');
+    const moveRight = $('#moveRight');
 
-startBtn.addEventListener('click', showForm);
-backBtn.addEventListener('click', showIntro);
+    function showForm() {
+      if (switcher) switcher.classList.add('show-form');
+      if (introPane) introPane.style.display = 'none';
+      if (formPane)  formPane.style.display  = 'block';
+    }
+    function showIntro() {
+      if (switcher) switcher.classList.remove('show-form');
+      if (formPane)  formPane.style.display  = 'none';
+      if (introPane) introPane.style.display = 'block';
+    }
 
-moveLeft.addEventListener('click', ()=>{
-  reqForm.classList.remove('to-right');
-  reqForm.classList.add('to-left');
-  setTimeout(()=>reqForm.classList.remove('to-left'), 420);
-});
-moveRight.addEventListener('click', ()=>{
-  reqForm.classList.remove('to-left');
-  reqForm.classList.add('to-right');
-  setTimeout(()=>reqForm.classList.remove('to-right'), 420);
-});
+    on(startBtn, 'click', showForm);
+    on(backBtn,  'click', showIntro);
+
+    on(moveLeft, 'click', () => {
+      if (!reqForm) return;
+      reqForm.classList.remove('to-right');
+      reqForm.classList.add('to-left');
+      setTimeout(() => reqForm.classList.remove('to-left'), 420);
+    });
+
+    on(moveRight, 'click', () => {
+      if (!reqForm) return;
+      reqForm.classList.remove('to-left');
+      reqForm.classList.add('to-right');
+      setTimeout(() => reqForm.classList.remove('to-right'), 420);
+    });
+  });
+})();
