@@ -1020,5 +1020,23 @@ textarea {
 }
 
 @media (max-width:768px){
- 
+.callto__text h2 {
+    font-size: 1.8rem !important;
+  }
+  .callto .container {
+    padding: 0px 15px !important;
+  }
+
+ .spad {
+  /* padding-top: 50px !important; */
+  
+}
+  .footer {
+    
+   margin-top: 0rem !important; 
+}
+.about-us{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
 }
