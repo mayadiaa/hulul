@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Swiper (Owl look)</title>
+
+    <!-- Fonts (زي ما عندك) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap & أي CSS خاص بيك -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/elegant-icons.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/slicknav.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* ====== شكل الهيرو العام (يشتغل مع ستايلك الحالي) ====== */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero__item {
+            position: relative;
+            min-height: 80vh;
+            /* نفس ارتفاع السلايدر القديم */
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero__item::after {
+            /* طبقة غامقة فوق الصورة زي القديم */
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 13, 29, 0.35);
+            pointer-events: none;
+        }
+
+        .hero__text {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+        }
+
+        .hero__text span {
+            letter-spacing: 2px;
+            opacity: .85;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .hero__text h2 {
+            font-family: "Play", sans-serif;
+            font-weight: 700;
+            font-size: 56px;
+            line-height: 1.05;
+            margin: 0 0 24px;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, .25);
+            padding: 12px 18px;
+        }
+
+        /* ====== pagination بشكل أرقام 01 02 03 أسفل يسار (بديل owl-dots) ====== */
+        .hero .swiper-pagination {
+            position: absolute;
+            left: 90px;
+            bottom: 34px;
+            width: auto;
+            display: flex;
+            gap: 18px;
+            z-index: 3;
+        }
+
+        .hero .swiper-pagination-bullet {
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            background: transparent;
+            opacity: 1;
+            color: rgba(255, 255, 255, .75);
+            font-family: "Play", sans-serif;
+            font-weight: 700;
+            letter-spacing: .08em;
+            font-size: 14px;
+            padding-bottom: 10px;
+            position: relative;
+            padding-left: 2px;
+            padding-right: 2px;
+            cursor: pointer;
+        }
+
+        /* الخط الصغير تحت الرقم النشط */
+        .hero .swiper-pagination-bullet-active {
+            color: #fff;
+        }
+
+        .hero .swiper-pagination-bullet-active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: #fff;
+        }
+
+        /* الأسهم (لو عايز تظهرها؛ نفس مكانها المعتاد) */
+        .hero .swiper-button-next,
+        .hero .swiper-button-prev {
+            color: #fff;
+            width: 48px;
+            height: 48px;
+        }
+
+        /* موبايل */
+        @media (max-width: 767px) {
+            .hero__item {
+                min-height: 70vh;
+            }
+
+            .hero__text h2 {
+                font-size: 38px;
+            }
+
+            .hero .swiper-pagination {
+                left: 24px;
+                bottom: 20px;
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ====== Hero Section (Swiper) ====== -->
+    <section class="hero">
+        <div class="swiper hero__slider">
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="swiper-slide hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="hero__text">
+                                    <span>FOR WEBSITE AND MOBILE APPLICATION</span>
+                                    <h2>WEBSITE’S<br />PORTFOLIO</h2>
+                                    <a href="#" class="primary-btn">SEE MORE ABOUT US</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="hero__text">
+                                    <span>FOR GRAPHIC DESIGN AND VIDEO EDITING</span>
+                                    <h2>GRAPHIC DESIGN’S<br />PORTFOLIO</h2>
+                                    <a href="#" class="primary-btn">SEE MORE ABOUT US</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="hero__text">
+                                    <span>FOR DIGITAL MARKETING</span>
+                                    <h2>DIGITAL MARKETING’S<br />PORTFOLIO</h2>
+                                    <a href="#" class="primary-btn">SEE MORE ABOUT US</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- نفس فكرة owl-dots لكن بأرقام -->
+            <div class="swiper-pagination"></div>
+
+            <!-- (اختياري) الأسهم -->
+            <!-- <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
+        </div>
+    </section>
+
+    <!-- ====== Scripts ====== -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // نفس وظيفة set-bg الموجودة عادة في main.js
+        document.querySelectorAll('.set-bg').forEach(function (el) {
+            var bg = el.getAttribute('data-setbg');
+            if (bg) el.style.backgroundImage = 'url(' + bg + ')';
+        });
+
+        // Swiper بإخراج Pagination كأرقام 01 02 03 مع underline للنشط
+        var heroSwiper = new Swiper(".hero__slider", {
+            loop: true,
+            speed: 800,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            effect: "slide",
+            pagination: {
+                el: ".hero .swiper-pagination",
+                clickable: true,
+                renderBullet: function (index, className) {
+                    var num = String(index + 1).padStart(2, '0'); // 01 02 03
+                    return '<span class="' + className + '">' + num + '</span>';
+                }
+            },
+            // لو حابب الأسهم، افتح التعليق فوق وحط الإعدادات هنا
+            // navigation: {
+            //   nextEl: ".hero .swiper-button-next",
+            //   prevEl: ".hero .swiper-button-prev",
+            // },
+        });
+    </script>
+</body>
+
+</html>

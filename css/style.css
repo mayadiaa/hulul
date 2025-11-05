@@ -511,22 +511,22 @@ ol {
 /*---------------------
   Hero
 -----------------------*/
-.hero__slider.owl-carousel .owl-item.active .hero__text span {
+.hero__slider.swiper .swiper-slide-active .hero__text span {
   top: 0;
   opacity: 1;
 }
 
-.hero__slider.owl-carousel .owl-item.active .hero__text h2 {
+.hero__slider.swiper .swiper-slide-active .hero__text h2 {
   top: 0;
   opacity: 1;
 }
 
-.hero__slider.owl-carousel .owl-item.active .hero__text .primary-btn {
+.hero__slider.swiper .swiper-slide-active .hero__text .primary-btn {
   top: 0;
   opacity: 1;
 }
 
-.hero__slider.owl-carousel .owl-dots {
+.hero__slider.swiper .swiper-pagination {
   position: absolute;
   left: 0;
   right: 0;
@@ -536,7 +536,7 @@ ol {
   margin: 0 auto;
 }
 
-.hero__slider.owl-carousel .owl-dots button {
+.hero__slider.swiper .swiper-pagination button {
   color: #adadad;
   font-size: 18px;
   font-family: "Play", sans-serif;
@@ -545,16 +545,16 @@ ol {
   display: inline-block;
 }
 
-.hero__slider.owl-carousel .owl-dots button.active {
+.hero__slider.swiper .swiper-pagination button.active {
   color: #ffffff;
 }
 
-.hero__slider.owl-carousel .owl-dots button.active:after {
+.hero__slider.swiper .swiper-pagination button.active:after {
   background: #ffffff;
   height: 2px;
 }
 
-.hero__slider.owl-carousel .owl-dots button:after {
+.hero__slider.swiper .swiper-pagination button:after {
   position: absolute;
   left: 0;
   bottom: -6px;
@@ -564,7 +564,7 @@ ol {
   content: "";
 }
 
-.hero__slider.owl-carousel .owl-dots button:last-child {
+.hero__slider.swiper .swiper-pagination button:last-child {
   margin-right: 0;
 }
 
@@ -918,16 +918,16 @@ ol {
   background-size: cover;
 }
 
-.latest__slider.owl-carousel .owl-item .col-lg-4 {
+.latest__slider.swiper .swiper-slide .col-lg-4 {
   max-width: 100%;
 }
 
-.latest__slider.owl-carousel .owl-dots {
+.latest__slider.swiper .swiper-pagination {
   text-align: center;
   padding-top: 35px;
 }
 
-.latest__slider.owl-carousel .owl-dots button {
+.latest__slider.swiper .swiper-pagination button {
   height: 8px;
   width: 8px;
   background: rgba(255, 255, 255, 0.2);
@@ -935,11 +935,11 @@ ol {
   margin-right: 10px;
 }
 
-.latest__slider.owl-carousel .owl-dots button.active {
+.latest__slider.swiper .swiper-pagination button.active {
   background: linear-gradient(135deg, #0a012b 0%, #1a1c6e 40%, #2e38a3 70%, #00d8ff 100%) !important;
 }
 
-.latest__slider.owl-carousel .owl-dots button:last-child {
+.latest__slider.swiper .swiper-pagination button:last-child {
   margin-right: 0;
 }
 
@@ -1212,16 +1212,16 @@ ol {
   padding-bottom: 60px;
 }
 
-.testimonial__slider.owl-carousel .owl-item .col-lg-4 {
+.testimonial__slider.swiper  .swiper-slide .col-lg-4 {
   max-width: 100%;
 }
 
-.testimonial__slider.owl-carousel .owl-dots {
+.testimonial__slider.swiper  .swiper-pagination {
   text-align: center;
   padding-top: 35px;
 }
 
-.testimonial__slider.owl-carousel .owl-dots button {
+.testimonial__slider.swiper  .swiper-pagination button {
   height: 8px;
   width: 8px;
   background: rgba(255, 255, 255, 0.2);
@@ -1229,11 +1229,11 @@ ol {
   margin-right: 10px;
 }
 
-.testimonial__slider.owl-carousel .owl-dots button.active {
+.testimonial__slider.swiper  .swiper-pagination button.active {
   background: #00bfe7;
 }
 
-.testimonial__slider.owl-carousel .owl-dots button:last-child {
+.testimonial__slider.swiper  .swiper-pagination button:last-child {
   margin-right: 0;
 }
 
@@ -1358,7 +1358,7 @@ ol {
   padding: 100px 20px;
 }
 
-.logo__carousel.owl-carousel .owl-item img {
+.logo__carousel.swiper  .swiper-slide img {
   width: auto;
   display: inline-block;
 }
@@ -2061,14 +2061,14 @@ ol {
     margin-top: -210px;
   }
 
-  .hero__slider.owl-carousel .owl-dots {
+  .hero__slider.swiper  .swiper-pagination {
     max-width: 930px !important;
   }
 }
 
 /* Tablet Device = 768px */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .hero__slider.owl-carousel .owl-dots {
+  .hero__slider.swiper  .swiper-pagination {
     max-width: 690px !important;
   }
 
@@ -2271,7 +2271,7 @@ ol {
     padding-left: 0;
   }
 
-  .hero__slider.owl-carousel .owl-dots {
+  .hero__slider.swiper  .swiper-pagination {
     max-width: auto;
     padding: 0 15px;
   }

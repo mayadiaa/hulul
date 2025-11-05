@@ -960,83 +960,288 @@ textarea {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
 }
+
 .bg-dark {
-    background-color: #080014 !important;
-    color: #fff;
+  background-color: #080014 !important;
+  color: #fff;
 }
-.jobdet{
+
+.jobdet {
   font-size: 1rem;
 }
-.text{
+
+.text {
   padding: 1rem !important;
 }
-.textwhite{
+
+.textwhite {
   color: white !important;
 }
-.container{max-width:var(--container);margin:auto;padding:24px;}
 
-.hero{background:linear-gradient(180deg,#100733 0%, #0b0420 100%);}
-.hero h1{margin:0 0 8px;font-size:40px}
-.breadcrumb{color:var(--muted);font-size:14px}
-.breadcrumb a{color:var(--primary);text-decoration:none}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
-  padding:48px 24px 80px;
+.container {
+  max-width: var(--container);
+  margin: auto;
+  padding: 24px;
 }
 
-.card{
-  display:block;
+.hero {
+  background: linear-gradient(180deg, #100733 0%, #0b0420 100%);
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 40px
+}
+
+.breadcrumb {
+  color: var(--muted);
+  font-size: 14px
+}
+
+.breadcrumb a {
+  color: var(--primary);
+  text-decoration: none
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 48px 24px 80px;
+}
+
+.card {
+  display: block;
   /* background:var(--card); */
-  border-radius:var(--radius);
-  padding:28px;
-  text-decoration:none;
-  color:var(--text);
-  transition:transform .2s ease, box-shadow .2s ease;
-  border:1px solid rgba(255,255,255,.06);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .2s ease, box-shadow .2s ease;
+  border: 1px solid rgba(255, 255, 255, .06);
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
-.card-title{margin:0 0 10px;font-size:22px;line-height:1.35}
-.card-meta{margin:0 0 14px;color:var(--muted);font-size:13px}
-.card-excerpt{margin:0 0 18px;color:#d7d7e5}
-.read-more{display:inline-block;font-weight:600;color:#fff;background:var(--primary);padding:10px 14px;border-radius:12px}
 
-.blog-single .single-meta{color:var(--muted)}
-.cover{margin:24px 0 12px}
-.cover img{width:100%;border-radius:var(--radius);display:block}
-.content{font-size:18px;line-height:1.9;color:#e9e9f7}
-.content h3{margin-top:28px}
-.theH1{
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35)
+}
+
+.card-title {
+  margin: 0 0 10px;
+  font-size: 22px;
+  line-height: 1.35
+}
+
+.card-meta {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 13px
+}
+
+.card-excerpt {
+  margin: 0 0 18px;
+  color: #d7d7e5
+}
+
+.read-more {
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  padding: 10px 14px;
+  border-radius: 12px
+}
+
+.blog-single .single-meta {
+  color: var(--muted)
+}
+
+.cover {
+  margin: 24px 0 12px
+}
+
+.cover img {
+  width: 100%;
+  border-radius: var(--radius);
+  display: block
+}
+
+.content {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #e9e9f7
+}
+
+.content h3 {
+  margin-top: 28px
+}
+
+.theH1 {
   font-size: 3rem;
 }
-.blogImg{
+
+.blogImg {
   height: 30rem;
   margin-top: -3rem;
 }
-.content h3{
-  color:#3f5da3;
+
+.content h3 {
+  color: #3f5da3;
 }
 
-@media (max-width:768px){
-.callto__text h2 {
+@media (max-width:768px) {
+  .callto__text h2 {
     font-size: 1.8rem !important;
   }
+
   .callto .container {
     padding: 0px 15px !important;
   }
 
- .spad {
-  /* padding-top: 50px !important; */
-  
-}
+  .spad {
+    /* padding-top: 50px !important; */
+
+  }
+
   .footer {
-    
-   margin-top: 0rem !important; 
+
+    margin-top: 0rem !important;
+  }
+
+  .about-us {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
 }
-.about-us{
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+
+/* ====== شكل الهيرو العام (يشتغل مع ستايلك الحالي) ====== */
+.hero {
+  position: relative;
+  overflow: hidden;
 }
+
+.hero__item {
+  position: relative;
+  min-height: 80vh;
+  /* نفس ارتفاع السلايدر القديم */
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__item::after {
+  /* طبقة غامقة فوق الصورة زي القديم */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 13, 29, 0.35);
+  pointer-events: none;
+}
+
+.hero__text {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.hero__text span {
+  letter-spacing: 2px;
+  opacity: .85;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.hero__text h2 {
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.05;
+  margin: 0 0 24px;
+}
+
+.primary-btn {
+  display: inline-block;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, .25);
+  padding: 12px 18px;
+}
+
+/* ====== pagination بشكل أرقام 01 02 03 أسفل يسار (بديل owl-dots) ====== */
+.hero .swiper-pagination {
+  position: absolute;
+  left: 90px;
+  bottom: 34px;
+  width: auto;
+  display: flex;
+  gap: 18px;
+  z-index: 3;
+}
+
+.hero .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  opacity: 1;
+  color: rgba(255, 255, 255, .75);
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  letter-spacing: .08em;
+  font-size: 14px;
+  padding-bottom: 10px;
+  position: relative;
+  padding-left: 2px;
+  padding-right: 2px;
+  cursor: pointer;
+}
+
+/* الخط الصغير تحت الرقم النشط */
+.hero .swiper-pagination-bullet-active {
+  color: #fff;
+}
+
+.hero .swiper-pagination-bullet-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #fff;
+}
+
+/* الأسهم (لو عايز تظهرها؛ نفس مكانها المعتاد) */
+.hero .swiper-button-next,
+.hero .swiper-button-prev {
+  color: #fff;
+  width: 48px;
+  height: 48px;
+}
+
+/* موبايل */
+@media (max-width: 767px) {
+  .hero__item {
+    min-height: 70vh;
+  }
+
+  .hero__text h2 {
+    font-size: 38px;
+  }
+
+  .hero .swiper-pagination {
+    left: 24px;
+    bottom: 20px;
+    gap: 14px;
+  }
+}
+
+[dir=rtl] {
+  a {
+    text-decoration: none;
+  }
+
+  .footer__top__social {
+    text-align: left;
+  }
 }

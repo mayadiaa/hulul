@@ -54,23 +54,9 @@
         allowParentLinks: true
     });
 
-    /*------------------
-		Hero Slider
-	--------------------*/
-    $('.hero__slider').owlCarousel({
-        loop: true,
-        dots: true,
-        mouseDrag: false,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        items: 1,
-        margin: 0,
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: true,
-    });
 
-    var dot = $('.hero__slider .owl-dot');
+
+    var dot = $('.hero__slider .swiper-pagination');
     dot.each(function () {
         var index = $(this).index() + 1;
         if (index < 10) {
@@ -80,82 +66,59 @@
         }
     });
 
+
+    // Hero Swiper
+    document.querySelectorAll('.set-bg').forEach(function (el) {
+        var bg = el.getAttribute('data-setbg');
+        if (bg) el.style.backgroundImage = 'url(' + bg + ')';
+    });
     /*------------------
-        Testimonial Slider
+       Hero Swiper
     --------------------*/
-    $(".testimonial__slider").owlCarousel({
+    var heroSwiper = new Swiper(".hero__slider", {
         loop: true,
-        margin: 0,
-        items: 3,
-        dots: true,
-        dotsEach: 2,
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: true,
-        responsive: {
-            992: {
-                items: 3
-            },
-            768: {
-                items: 2
-            },
-            320: {
-                items: 1
+        speed: 800,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        effect: "slide",
+        pagination: {
+            el: ".hero .swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                var num = String(index + 1).padStart(2, '0'); // 01 02 03
+                return '<span class="' + className + '">' + num + '</span>';
             }
+        },
+        // لو حابب الأسهم، افتح التعليق فوق وحط الإعدادات هنا
+        // navigation: {
+        //   nextEl: ".hero .swiper-button-next",
+        //   prevEl: ".hero .swiper-button-prev",
+        // },
+    });
+
+
+    /*------------------
+       Blog Swiper
+    --------------------*/
+    var blogSwiper = new Swiper(".latest__slider", {
+        loop: true,
+        speed: 700,
+        spaceBetween: 30,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".latest .swiper-pagination",
+            clickable: true,
+        },
+        slidesPerView: 3,
+        breakpoints: {
+            1024: { slidesPerView: 3 },
+            768: { slidesPerView: 2 },
+            0: { slidesPerView: 1 }
         }
     });
 
-    /*------------------
-        Latest Slider
-    --------------------*/
-    $(".latest__slider").owlCarousel({
-        loop: true,
-        margin: 0,
-        items: 3,
-        dots: true,
-        dotsEach: 2,
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: true,
-        responsive: {
-            992: {
-                items: 3
-            },
-            768: {
-                items: 2
-            },
-            320: {
-                items: 1
-            }
-        }
-    });
-
-    /*------------------
-        Logo Slider
-    --------------------*/
-    $(".logo__carousel").owlCarousel({
-        loop: true,
-        margin: 100,
-        items: 6,
-        dots: false,
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: true,
-        responsive: {
-            992: {
-                items: 5
-            },
-            768: {
-                items: 4
-            },
-            480: {
-                items: 3
-            },
-            320: {
-                items: 2
-            }
-        }
-    });
 
     /*------------------
         Video Popup
